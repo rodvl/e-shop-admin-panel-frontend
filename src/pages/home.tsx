@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, Grid2, Input, List, ListItemButton, ListItemText, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, CircularProgress, Grid2, List, ListItemButton, ListItemText, TextField, Typography } from "@mui/material";
 import api from "../services/admin-panel";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
@@ -41,10 +41,18 @@ export default function Home() {
                     </List>
                 </Grid2>}
 
-                <Grid2 size={5}>
-                    <Typography variant="h5">Criar categoria</Typography>
-                    <Input placeholder="Nome" value={newCategoryName} onChange={e => setNewCategoryName(e.target.value)}/>
-                    <Button onClick={handleCreateCategory}>Criar</Button>
+                <Grid2 size={8}>
+                    <Card sx={{minWidth: '20%'}}>
+                        <CardContent>
+                            <Typography variant="h5" component="div" sx={{marginBottom: '16px'}}>
+                                Criar categoria
+                            </Typography>
+                            <TextField sx={{width: '100%'}}placeholder="Nome" value={newCategoryName} onChange={e => setNewCategoryName(e.target.value)}/>
+                        </CardContent>
+                        <CardActions>
+                        <Button sx={{margin: 'auto'}} variant="contained" onClick={handleCreateCategory}>Criar</Button>
+                        </CardActions>
+                    </Card>
                 </Grid2>
             </Grid2>
         </Box>
